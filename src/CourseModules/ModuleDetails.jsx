@@ -1,17 +1,16 @@
-import React from "react";
 import { useLocation } from "react-router-dom";
 import { Row, Col, Progress, Card, Typography } from "antd";
 import { CheckCircleOutlined, CloseCircleOutlined } from "@ant-design/icons";
 import "./Module.css";
 
-const { Title, Text } = Typography;
+const { Title, } = Typography;
 
 const ModuleDetails = () => {
   const location = useLocation();
-  const { module } = location.state || {}; // Handle if module is undefined
+  const { module } = location.state || {}; 
 
   if (!module) {
-    return <div>No module data found</div>; // Handle the case where module is not passed
+    return <div>No module data found</div>; 
   }
 
   return (

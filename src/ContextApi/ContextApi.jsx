@@ -13,9 +13,6 @@ let GlobalStates = (children) => {
     const [token, setToken] = useState("")
     const [userId, setUserId] = useState("")
     const[studentData,setStudentData]=useState([]);
-    // Cookie se data get karna
-    // const token = Cookies.get('authToken');
-    // const userId = Cookies.get('userId');
 useEffect(()=>{
     setToken(Cookies.get('authToken'));
     setUserId(Cookies.get('userId'));

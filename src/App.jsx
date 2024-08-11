@@ -1,14 +1,8 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-
-// import Sharepdf from './Components/sharepdf/Sharepdf';
-// import Savepdf from './Components/Savepdf/Savepdf';
-// import Printpdf from '../Printpdf';
 import { createBrowserRouter, Navigate, RouterProvider } from "react-router-dom";
-// import StudentForm from "./pages/StudentForm";
 import CertificatePage from "./pages/CertificatePage";
 import Login from "./Components/Login/Login";
 import Signup from "./Components/Signup/Signup";
-// import Dashboard from "./Components/Dashboard/dashboard";
 import Modules from "./CourseModules/Modules";
 import ModuleDetails from "./CourseModules/ModuleDetails";
 import Dashboard from "./pages/Dashboard";
@@ -56,7 +50,6 @@ const App = () => {
       ),
     },
     {
-      //This will be protected route ( check with validating cnic and password on log in)
       path: "/dashboard",
       element: (
         <>
@@ -74,7 +67,6 @@ const App = () => {
       ),
     },
     {
-      //This will be protected route ( check with validating cnic and password on log in)
       path: "/course-modules",
       element: (
         <>
@@ -83,7 +75,6 @@ const App = () => {
       ),
     },
     {
-      //This will be protected route ( check with validating cnic and password on log in)
       path: "/module-details",
       element: (
         <>

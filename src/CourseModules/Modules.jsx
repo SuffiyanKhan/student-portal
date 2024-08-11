@@ -1,44 +1,39 @@
-import  { useEffect, useState } from "react";
-import { Card, Spin, Col, Row,  } from "antd";
+import { useEffect, useState } from "react";
+import {  Spin,  } from "antd";
 import { useNavigate } from "react-router-dom";
-import { CheckCircleOutlined, CloseCircleOutlined } from "@ant-design/icons";
 import "./Module.css";
-
-// const { Meta } = Card;
+import Header from "../Components/Header/Header";
 
 const demoData = [
   {
-    moduleName: "Quarter 1",
-    attendence: 80, // Attendance percentage
-    test: 75, // Test marks out of 100
-    quiz1: 85, // Quiz 1 marks out of 100
-    quiz2: 90, // Quiz 2 marks out of 100
-    quiz3: 78, // Quiz 3 marks out of 100
+    moduleName: "HTML",
+    attendence: 80,
+    test: 75,
+    quiz1: 85,
+    quiz2: 90,
+    quiz3: 78,
     totalQuiz: 3,
-    testStatus: Math.random() > 0.5 ? "Pass" : "Fail", // Randomly set Pass or Fail
-    totalMarks: 85 + 90 + 78, // Sum of all quiz marks
+    totalMarks: 85 + 90 + 78,
   },
   {
-    moduleName: "Quarter 2",
+    moduleName: "CSS",
     attendence: 70,
     test: 80,
     quiz1: 60,
     quiz2: 70,
     quiz3: 65,
     totalQuiz: 3,
-    testStatus: Math.random() > 0.5 ? "Pass" : "Fail",
     totalMarks: 60 + 70 + 65,
   },
   {
-    moduleName: "Quarter 2",
-    attendence: 70,
-    test: 80,
+    moduleName: "JS",
+    attendence: 80,
+    test: 70,
     quiz1: 60,
-    quiz2: 70,
-    quiz3: 65,
+    quiz2: 55,
+    quiz3: 79,
     totalQuiz: 3,
-    testStatus: Math.random() > 0.5 ? "Pass" : "Fail",
-    totalMarks: 60 + 70 + 65,
+    totalMarks: 60 + 55 + 79,
   },
 ];
 
@@ -53,7 +48,7 @@ const Modules = () => {
       setLoading(true);
       try {
         const result = demoData;
-     
+
         setData(result);
         setLoading(false);
       } catch (error) {
@@ -79,47 +74,24 @@ const Modules = () => {
     navigate(`/module-details`, { state: { module } });
   };
   return (
-    <div className="card-container">
-      <Row gutter={[16, 16]} justify="center">
-        {data.map((module, index) => (
-          <Col key={index} xs={24} sm={12} md={8} lg={6}>
-            <Card
-              key={index}
-              title={`Quarter: ${module.moduleName}`}
-              bordered={false}
-              style={{
-                width: 300,
-                borderRadius: "10px",
-                overflow: "hidden",
-                boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
-                background: "white",
-                margin: "10px", // margin added for spacing between cards
-                cursor: "pointer",
-              }}
-              headStyle={{
-                backgroundColor: "#0f50f5",
-                color: "#fff",
-                textAlign: "center",
-                borderBottom: "none",
-              }}
-              onClick={() => handleCardClick(module)}
-            >
-              <p className="card-content" style={{ fontSize: "26px" }}>
-                Attendance: {module.attendence}
-              </p>
-              <p className="card-content" style={{ fontSize: "26px" }}>
-                Test Result:{" "}
-                {module.testStatus == "Pass" ? (
-                  <CheckCircleOutlined style={{ color: "#3f8600" }} />
-                ) : (
-                  <CloseCircleOutlined style={{ color: "#cf1322" }} />
-                )}{" "}
-              </p>
-            </Card>
-          </Col>
-        ))}
-      </Row>
-    </div>
+    <>
+     <Header/>
+      <div className="container mt-5">
+        <div className="row" style={{gap:"0px 5px"}}>
+          {data.map((module, index) => (
+            <>
+              <div className="col-lg-3 col-md-6 col-sm-12 py-3 px-4 border rounded-3" key={index} onClick={()=>{handleCardClick(module)}}>
+                <div className="" >
+                  <h4>{module.moduleName}</h4>
+                  <h5>Attendence: {module.attendence}</h5>
+                  <h5>Attendence: {((module.totalMarks / 300) * 100).toFixed(2)}</h5>
+                </div>
+              </div>
+            </>
+          ))}
+        </div>
+      </div>
+    </>
   );
 };
 
