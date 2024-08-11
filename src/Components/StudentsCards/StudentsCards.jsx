@@ -1,8 +1,9 @@
+import { useNavigate } from "react-router-dom"
 import { useGlobalState } from "../../ContextApi/ContextApi"
 
 function StudentsCards() {
     const { studentData} = useGlobalState()
-
+const navigate = useNavigate()
     return (
         <>
             <div className="container mt-4">
@@ -10,7 +11,7 @@ function StudentsCards() {
                     {
                         studentData.map((data)=>(
                             <>
-                            <div className="col-lg-3 col-md-6 col-sm-12 px-4 py-4 rounded-3" style={{ boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px" }}>
+                            <div className="col-lg-3 col-md-6 col-sm-12 px-4 py-4 rounded-3" onClick={()=>{navigate("/course-modules")}} style={{ boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px" }}>
                         <h4 className="text-capitalize fw-bold mb-4">{data.course}</h4>
                         <div className="d-flex" style={{ gap: "0px 20px" }}>
                             <p className="text-capitalize fs-6 fw-semibold">Batch: {data.batchNo}</p>

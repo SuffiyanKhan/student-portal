@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
-import { Card, Spin, Col, Row, Flex } from "antd";
+import  { useEffect, useState } from "react";
+import { Card, Spin, Col, Row,  } from "antd";
 import { useNavigate } from "react-router-dom";
 import { CheckCircleOutlined, CloseCircleOutlined } from "@ant-design/icons";
 import "./Module.css";
 
-const { Meta } = Card;
+// const { Meta } = Card;
 
 const demoData = [
   {
@@ -53,22 +53,7 @@ const Modules = () => {
       setLoading(true);
       try {
         const result = demoData;
-
-        // // Replace with your API call
-        // const response = await fetch(
-        //   "https://669a404d9ba098ed61feed64.mockapi.io/api/students/owais"
-        // );
-        // const result = await response.json();
-
-        // // Added demo data for quizzes and test status
-        // const demoData = result.map((module) => ({
-        //   ...module,
-        //   quiz1: Math.floor(Math.random() * 100),
-        //   quiz2: Math.floor(Math.random() * 100),
-        //   quiz3: Math.floor(Math.random() * 100),
-        //   testStatus: Math.random() > 0.5 ? "Pass" : "Fail",
-        // }));
-
+     
         setData(result);
         setLoading(false);
       } catch (error) {
