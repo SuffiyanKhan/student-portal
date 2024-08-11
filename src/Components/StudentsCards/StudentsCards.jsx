@@ -2,7 +2,7 @@ import { useGlobalState } from "../../ContextApi/ContextApi"
 
 function StudentsCards() {
     const { studentData} = useGlobalState()
-console.log(studentData)
+
     return (
         <>
             <div className="container mt-4">
